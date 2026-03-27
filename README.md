@@ -26,7 +26,7 @@ springboot-system-monitor/
 ├── README.md                        # This file
 └── src/
     └── main/
-        ├── java/com/portfolio/systemmonitor/
+        ├── java/com/geez14/sysmon/
         │   ├── SystemMonitorApplication.java  # Main Spring Boot app
         │   ├── controller/
         │   │   ├── SystemController.java      # System endpoints
@@ -57,7 +57,7 @@ springboot-system-monitor/
 
 ### 1. Clone/Navigate to project
 ```bash
-cd /mnt/c/Users/2444709/Coding/Claude/Portfolio/springboot-system-monitor
+cd springboot-system-monitor
 ```
 
 ### 2. Build the application
@@ -70,11 +70,11 @@ mvn clean install
 mvn spring-boot:run
 ```
 
-The application will start on `http://localhost:8080`
+The application will start on `http://localhost:8000`
 
 ## REST API Endpoints
 
-### Base URL: `http://localhost:8080/api`
+### Base URL: `http://localhost:8000/api`
 
 ### System Endpoints
 
@@ -270,16 +270,16 @@ POST /process/kill/1234
 
 ```bash
 # Get system info
-curl http://localhost:8080/api/system/info
+curl http://localhost:8000/api/system/info
 
 # Get resources
-curl http://localhost:8080/api/system/resources
+curl http://localhost:8000/api/system/resources
 
 # Get network info
-curl http://localhost:8080/api/network/info
+curl http://localhost:8000/api/network/info
 
 # Get open ports
-curl http://localhost:8080/api/process/ports
+curl http://localhost:8000/api/process/ports
 
 # Kill process with PID 1234
 curl -X POST http://localhost:8080/api/process/kill/1234
@@ -290,7 +290,7 @@ curl -X POST http://localhost:8080/api/process/kill/1234
 ```python
 import requests
 
-BASE_URL = "http://localhost:8080/api"
+BASE_URL = "http://localhost:8000/api"
 
 # Get system info
 response = requests.get(f"{BASE_URL}/system/info")
@@ -312,7 +312,7 @@ print(response.json())
 ### Using JavaScript/Node.js
 
 ```javascript
-const BASE_URL = 'http://localhost:8080/api';
+const BASE_URL = 'http://localhost:8000/api';
 
 // Get system info
 fetch(`${BASE_URL}/system/info`)
@@ -401,13 +401,6 @@ In case of errors, the API returns:
 **Solution**: You may need elevated privileges:
 ```bash
 sudo mvn spring-boot:run
-```
-
-### Issue: Port 8080 already in use
-
-**Solution**: Change the port in application.properties:
-```properties
-server.port=8090
 ```
 
 ## Building & Deployment
